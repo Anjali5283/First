@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .registration-container {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .registration-container h2 {
+            margin-bottom: 1.5em;
+        }
+        .input-group {
+            margin-bottom: 1em;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.8em;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 0.8em 1.5em;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Register</button>
+            <p class="error" id="error"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').onsubmit = function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('error');
+            
+            if (username && email && password) {
+                alert('Registration successful!');
+            } else {
+                errorElement.textContent = 'Please fill in all fields';
+            }
+        }
+    </script>
+</body>
+</html>
